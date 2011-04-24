@@ -5,7 +5,7 @@
 Summary:	Minimalistic Netlink communication library
 Name:		libmnl
 Version:	1.0.1
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	LGPLv2+
 Group:		System/Kernel and hardware
 URL:		http://netfilter.org/projects/libmnl/
@@ -25,6 +25,7 @@ avoid re-inventing the wheel.
 %package -n	%{libname}
 Summary:	Minimalistic Netlink communication library
 Group:		System/Libraries
+Provides:	libmnl
 
 %description -n	%{libname}
 libmnl is a minimalistic user-space library oriented to Netlink developers.
@@ -36,6 +37,8 @@ avoid re-inventing the wheel.
 %package -n	%{develname}
 Summary:	Development files for libmnl
 Group:		Development/C
+Requires:	%{libname} = %{version}-%{release}
+Provides:	mnl-devel
 
 %description -n	%{develname}
 libmnl is a minimalistic user-space library oriented to Netlink developers.
