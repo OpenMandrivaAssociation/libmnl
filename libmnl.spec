@@ -5,15 +5,14 @@
 Summary:	Minimalistic Netlink communication library
 Name:		libmnl
 Version:	1.0.1
-Release:	%mkrel 2
+Release:	3
 License:	LGPLv2+
 Group:		System/Kernel and hardware
 URL:		http://netfilter.org/projects/libmnl/
 Source0:	http://netfilter.org/projects/libmnl/files/%name-%version.tar.bz2
 Source1:	http://netfilter.org/projects/libmnl/files/%name-%version.tar.bz2.sig
-BuildRequires:	linux-userspace-headers
-BuildRequires:	libtool
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRequires:	kernel-headers
+BuildRequires:	autoconf automake libtool
 
 %description
 libmnl is a minimalistic user-space library oriented to Netlink developers.
@@ -37,7 +36,7 @@ avoid re-inventing the wheel.
 %package -n	%{develname}
 Summary:	Development files for libmnl
 Group:		Development/C
-Requires:	%{libname} = %{version}-%{release}
+Requires:	%{libname} >= %{version}-%{release}
 Provides:	mnl-devel
 
 %description -n	%{develname}
@@ -68,24 +67,10 @@ rm -rf %{buildroot}
 # cleanup
 rm -f %{buildroot}%{_libdir}/*.la
 
-%if %mdkversion < 200900
-%post -n %{libname} -p /sbin/ldconfig
-%endif
-
-%if %mdkversion < 200900
-%postun -n %{libname} -p /sbin/ldconfig
-%endif
-
-%clean
-rm -rf %{buildroot}
-
 %files -n %{libname}
-%defattr(-,root,root)
 %{_libdir}/*.so.%{major}*
 
 %files -n %{develname}
-%defattr(-,root,root)
 %{_includedir}/*
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*
-
