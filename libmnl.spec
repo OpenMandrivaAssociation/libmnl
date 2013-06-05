@@ -8,7 +8,7 @@ Version:	1.0.3
 Release:	2
 License:	LGPLv2+
 Group:		System/Kernel and hardware
-URL:		http://netfilter.org/projects/libmnl/
+Url:		http://netfilter.org/projects/libmnl/
 Source0:	http://netfilter.org/projects/libmnl/files/%{name}-%{version}.tar.bz2
 Source1:	http://netfilter.org/projects/libmnl/files/%{name}-%{version}.tar.bz2.sig
 BuildRequires:	kernel-headers
@@ -35,14 +35,10 @@ avoid re-inventing the wheel.
 Summary:	Development files for libmnl
 Group:		Development/C
 Requires:	%{libname} >= %{version}-%{release}
-Provides:	mnl-devel
+Provides:	mnl-devel = %{version}-%{release}
 
 %description -n	%{devname}
-libmnl is a minimalistic user-space library oriented to Netlink developers.
-There are a lot of common tasks in parsing, validating, constructing of both
-the Netlink header and TLVs that are repetitive and easy to get wrong. This
-library aims to provide simple helpers that allows you to re-use code and to
-avoid re-inventing the wheel.
+This package includes the development files for %{name}.
 
 %prep
 %setup -q
@@ -61,3 +57,4 @@ avoid re-inventing the wheel.
 %{_includedir}/libmnl
 %{_libdir}/libmnl.so
 %{_libdir}/pkgconfig/libmnl.pc
+
