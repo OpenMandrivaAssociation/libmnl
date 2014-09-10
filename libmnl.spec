@@ -44,7 +44,7 @@ This package includes the development files for %{name}.
 %setup -q
 
 %build
-%configure2_5x
+%configure
 %make
 
 %install
@@ -57,4 +57,3 @@ This package includes the development files for %{name}.
 %{_includedir}/libmnl
 %{_libdir}/libmnl.so
 %{_libdir}/pkgconfig/libmnl.pc
-
