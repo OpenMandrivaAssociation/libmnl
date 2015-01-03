@@ -1,11 +1,12 @@
 %define	major	0
 %define	libname	%mklibname mnl %{major}
 %define	devname	%mklibname mnl -d
+%define debug_package %{nil}
 
 Summary:	Minimalistic Netlink communication library
 Name:		libmnl
 Version:	1.0.3
-Release:	13
+Release:	14
 License:	LGPLv2+
 Group:		System/Kernel and hardware
 Url:		http://netfilter.org/projects/libmnl/
@@ -42,8 +43,12 @@ This package includes the development files for %{name}.
 
 %prep
 %setup -q
+%apply_patches
 
 %build
+
+# clang doesnt like the visibility definitions in this code
+export CFLAGS="-fvisibility=default"
 %configure
 %make
 
