@@ -6,12 +6,12 @@
 Summary:	Minimalistic Netlink communication library
 Name:		libmnl
 Version:	1.0.4
-Release:	1
+Release:	2
 License:	LGPLv2+
 Group:		System/Kernel and hardware
 Url:		http://netfilter.org/projects/libmnl/
 Source0:	http://netfilter.org/projects/libmnl/files/%{name}-%{version}.tar.bz2
-BuildRequires:	kernel-release-headers
+BuildRequires:	kernel-headers
 
 %description
 libmnl is a minimalistic user-space library oriented to Netlink developers.
@@ -41,18 +41,17 @@ Provides:	mnl-devel = %{version}-%{release}
 This package includes the development files for %{name}.
 
 %prep
-%setup -q
-%apply_patches
+%autosetup -p1
 
 %build
 
 # clang doesnt like the visibility definitions in this code
 export CFLAGS="-fvisibility=default"
 %configure
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 %files -n %{libname}
 %{_libdir}/libmnl.so.%{major}*
