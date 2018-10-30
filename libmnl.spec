@@ -6,7 +6,7 @@
 Summary:	Minimalistic Netlink communication library
 Name:		libmnl
 Version:	1.0.4
-Release:	2
+Release:	3
 License:	LGPLv2+
 Group:		System/Kernel and hardware
 Url:		http://netfilter.org/projects/libmnl/
