@@ -8,17 +8,16 @@
 %bcond_with compat32
 %endif
 
-%define	major	0
-%define	libname	%mklibname mnl %{major}
-%define	devname	%mklibname mnl -d
-%define debug_package %{nil}
+%define major 0
+%define libname %mklibname mnl %{major}
+%define devname %mklibname mnl -d
 %define lib32name libmnl%{major}
 %define dev32name libmnl-devel
 
 Summary:	Minimalistic Netlink communication library
 Name:		libmnl
 Version:	1.0.4
-Release:	4
+Release:	5
 License:	LGPLv2+
 Group:		System/Kernel and hardware
 Url:		http://netfilter.org/projects/libmnl/
@@ -32,45 +31,45 @@ the Netlink header and TLVs that are repetitive and easy to get wrong. This
 library aims to provide simple helpers that allows you to re-use code and to
 avoid re-inventing the wheel.
 
-%package -n	%{libname}
+%package -n %{libname}
 Summary:	Minimalistic Netlink communication library
 Group:		System/Libraries
 
-%description -n	%{libname}
+%description -n %{libname}
 libmnl is a minimalistic user-space library oriented to Netlink developers.
 There are a lot of common tasks in parsing, validating, constructing of both
 the Netlink header and TLVs that are repetitive and easy to get wrong. This
 library aims to provide simple helpers that allows you to re-use code and to
 avoid re-inventing the wheel.
 
-%package -n	%{devname}
+%package -n %{devname}
 Summary:	Development files for libmnl
 Group:		Development/C
 Requires:	%{libname} >= %{version}-%{release}
 Provides:	mnl-devel = %{version}-%{release}
 
-%description -n	%{devname}
+%description -n %{devname}
 This package includes the development files for %{name}.
 
 %if %{with compat32}
-%package -n	%{lib32name}
+%package -n %{lib32name}
 Summary:	Minimalistic Netlink communication library (32-bit)
 Group:		System/Libraries
 
-%description -n	%{lib32name}
+%description -n %{lib32name}
 libmnl is a minimalistic user-space library oriented to Netlink developers.
 There are a lot of common tasks in parsing, validating, constructing of both
 the Netlink header and TLVs that are repetitive and easy to get wrong. This
 library aims to provide simple helpers that allows you to re-use code and to
 avoid re-inventing the wheel.
 
-%package -n	%{dev32name}
+%package -n %{dev32name}
 Summary:	Development files for libmnl (32-bit)
 Group:		Development/C
 Requires:	%{lib32name} = %{EVRD}
 Requires:	%{devname} = %{EVRD}
 
-%description -n	%{dev32name}
+%description -n %{dev32name}
 This package includes the development files for %{name}.
 %endif
 
