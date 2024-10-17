@@ -11,7 +11,7 @@ Version:	1.0.5
 Release:	2
 License:	LGPLv2+
 Group:		System/Kernel and hardware
-Url:		http://netfilter.org/projects/libmnl/
+Url:		https://netfilter.org/projects/libmnl/
 Source0:	http://netfilter.org/projects/libmnl/files/%{name}-%{version}.tar.bz2
 BuildRequires:	kernel-headers
 Obsoletes:	libmnl0 < 1.0.5-2
