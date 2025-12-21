@@ -13,6 +13,11 @@ License:	LGPLv2+
 Group:		System/Kernel and hardware
 Url:		https://netfilter.org/projects/libmnl/
 Source0:	http://netfilter.org/projects/libmnl/files/%{name}-%{version}.tar.bz2
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	kernel-headers
 Obsoletes:	libmnl0 < 1.0.5-2
 Obsoletes:	libmnl-devel < 1.0.5-2
