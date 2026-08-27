@@ -8,7 +8,7 @@
 Summary:	Minimalistic Netlink communication library
 Name:		libmnl
 Version:	1.0.5
-Release:	2
+Release:	3
 License:	LGPLv2+
 Group:		System/Kernel and hardware
 Url:		https://netfilter.org/projects/libmnl/
@@ -19,6 +19,7 @@ BuildRequires:	libtool-base
 BuildRequires:	slibtool
 BuildRequires:	make
 BuildRequires:	kernel-headers
+BuildRequires:	doxygen
 Obsoletes:	libmnl0 < 1.0.5-2
 Obsoletes:	libmnl-devel < 1.0.5-2
 
@@ -66,3 +67,4 @@ This package includes the development files for %{name}.
 %{_includedir}/libmnl
 %{_libdir}/libmnl.so
 %{_libdir}/pkgconfig/libmnl.pc
+%doc %{_mandir}/man3/*
